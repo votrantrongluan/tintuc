@@ -1,16 +1,45 @@
-<title>Cài đặt thành công</title>
+<?php
 
-<h1>Chúc mừng bạn đã cài đặt thành công Heroku App!</h1>
+ob_start();
+session_start();
+if(!isset($_SESSION["idUser"]) && $_SESSION["idGroup"] != 1) 
+{
+	header("location:../index.php");
+}
 
-Hãy đăng nhập vào <a href="/manager">manager</a> để quản lí file hoặc up code. Xem thêm về thông tin gói php của Heroku <a href="/info.php">tại đây</a>
+require "../lib/dbcon.php";
+require "../lib/quantri.php";
 
-Sau khi đăng nhập thành công hãy xóa các file 
-<ul>
- <li><b>index.php</b></li>
- <li><b>info.php</b></li>
- <li><b>README.md</b></li>
-</ul>
-Nếu bạn không cần dùng composer hãy xóa <b>composer.json</b> và mục <b>vendor</b>
 
-<h3><font color="red">Lưu ý!</font></h3>
-Không được xóa các tệp khác ngoài các tệp nêu trên, như <b>.heroku</b>, <b>.composer</b> v.vv
+?>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Lap Trinh PHP - KhoaPhamTraining</title>
+<link rel="stylesheet" type="text/css" href="layout.css" />
+</head>
+
+<body>
+
+	
+</body>
+	<table width="1000"  align="center" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td id="hangTieuDe">TRANG QUẢN TRỊ
+			<div style="width: 200px; float: right;">
+				<div>Chào anh <?php echo $_SESSION["HoTen"]; ?></div>
+			</div>
+
+			</td>
+		</tr>
+		<tr>
+			<td id="hang2"><?php require"menu.php"; ?></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+</html>
